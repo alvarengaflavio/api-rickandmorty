@@ -2,7 +2,7 @@ import { CharacterEntity } from '../entities/character.entity.js';
 import mongoose from 'mongoose';
 
 export class CharacterMiddleware {
-  static validateBodyCharacter(req, res, next) {
+  static validateBody(req, res, next) {
     try {
       CharacterEntity.validateJson(req.body);
       next();
@@ -11,7 +11,7 @@ export class CharacterMiddleware {
     }
   }
 
-  static validateIdCharacter(req, res, next) {
+  static validateId(req, res, next) {
     try {
       if (!req.params.id) {
         return res.status(400).send({ message: 'Missing parameters' });
