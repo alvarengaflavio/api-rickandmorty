@@ -16,6 +16,13 @@ export class CharacterEntity {
     ) {
       throw new Error('Invalid name');
     }
+    if (
+      !jsonChar.imageUrl ||
+      jsonChar.imageUrl.length < 3 ||
+      jsonChar.imageUrl.length > 80
+    ) {
+      throw new Error('Invalid imageUrl');
+    }
   }
 
   addUser(userId) {

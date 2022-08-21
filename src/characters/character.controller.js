@@ -1,5 +1,4 @@
 import * as characterService from './character.service.js';
-import { CharacterEntity } from '../entities/Character.entity.js';
 
 export const findAllCharactersController = async (req, res) => {
   try {
@@ -15,9 +14,7 @@ export const findAllCharactersController = async (req, res) => {
 
 export const createCharacterController = async (req, res) => {
   try {
-    CharacterEntity.validateJson(req.body);
-    console.log(req.body);
-    const newCharacter = new CharacterEntity(req.body);
+    const newCharacter = req.body;
     const createdCharacter = await characterService.createCharacterService(
       newCharacter,
     );
@@ -28,13 +25,19 @@ export const createCharacterController = async (req, res) => {
 };
 
 export const findByIdController = async (req, res) => {
-    try {
-        const foundCharacter = await characterService.findByIdService(req.params.id);
-        if (!foundCharacter) {
-        return res.status(404).send({ message: 'Character not found' });
-        }
-        res.status(200).send({ foundCharacter });
-    } catch (err) {
-        res.status(500).send({ message: err.message });
+  try {
+    const foundCharacter = await characterService.findByIdService(
+      req.params.id,
+    );
+    if (!foundCharacter) {
+      return res.status(404).send({ message: 'Character not found' });
     }
-}
+    res.status(200).send({ foundCharacter });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
+export const updateCharacterController = async (req, res) => {};
+
+export const deleteCharacterController = async (req, res) => {};
