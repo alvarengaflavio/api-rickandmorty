@@ -8,13 +8,17 @@ export class CharacterEntity {
 
   static validateJson(jsonChar) {
     if (!jsonChar) {
-      throw new Error("Character JSON is undefined");
+      throw new Error('Character JSON is undefined');
     }
-    if (!jsonChar.name || !jsonChar.name < 3 || !jsonChar.name > 20) {
-      throw new Error("Invalid name");
+    if (
+      !jsonChar.name ||
+      !jsonChar.name.length < 3 ||
+      !jsonChar.name.length > 20
+    ) {
+      throw new Error('Invalid name');
     }
     if (!jsonChar.image) {
-      throw new Error("Invalid imageURL");
+      throw new Error('Invalid imageURL');
     }
   }
 
