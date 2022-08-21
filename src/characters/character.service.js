@@ -20,7 +20,17 @@ export const findByIdService = async id => {
   return foundCharacter;
 };
 
-export const updateCharacterServuce = async (id, characterObject) => {};
+export const updateCharacterService = async (id, characterObject) => {
+  const updatedCharacter = await Character.findById(id);
+  if (!updatedCharacter) {
+    return null;
+  }
+  const updateEntity = new CharacterEntity(characterObject);
+  updatedCharacter.name = updateEntity.name;
+  updatedCharacter.imageUrl = updateEntity.imageUrl;
+  await updatedCharacter.save();
+  return updatedCharacter;
+};
 
 export const deleteCharacterService = async id => {
   const deletedCharacter = await Character.findByIdAndDelete(id);

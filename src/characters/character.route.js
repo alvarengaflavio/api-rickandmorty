@@ -22,6 +22,7 @@ router.get(
 router.put(
   '/update/:id',
   CharacterMiddleware.validateId,
+  CharacterMiddleware.validateBody,
   characterController.updateCharacterController,
 );
 // DELETE CHARACTER

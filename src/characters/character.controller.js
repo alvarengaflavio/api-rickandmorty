@@ -38,7 +38,20 @@ export const findByIdController = async (req, res) => {
   }
 };
 
-export const updateCharacterController = async (req, res) => {};
+export const updateCharacterController = async (req, res) => {
+  try {
+    const updatedCharacter = await characterService.updateCharacterService(
+      req.params.id,
+      req.body,
+    );
+    if (!updatedCharacter) {
+      return res.status(404).send({ message: 'Character Id not found' });
+    }
+    res.status(200).send({ updatedCharacter });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
 
 export const deleteCharacterController = async (req, res) => {
   try {
