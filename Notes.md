@@ -2,36 +2,34 @@
 
 - [ ] Primeira Entrega 22/08/2022
 
-  - [GET] Leitura de todas os personagens
-  - [GET] Leitura de personagens individuais (por ID)
-  - [POST] Criação de personagens
-  - [PUT] Edição de personagens por ID
-  - [DELETE] Exclusão de personagens por ID
+  - [ ] [GET] Leitura de todas os personagens 
+  - [ ] [GET] Leitura de personagens individuais (por ID)
+  - [ ] [POST] Criação de personagens
+  - [ ] [PUT] Edição de personagens por ID
+  - [ ] [DELETE] Exclusão de personagens por ID
 
 - Requisitos:
 
-  - Formatação do código utilizando Prettier;
-  - Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login).
+  - [x] Formatação do código utilizando Prettier;
+  - [x] Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login).
 
-- [ ] --> Concluído?
+---
 
 - [ ] Segunda Entrega 29/08/2022
 
-  - [POST] Criar Usuários
-  - [GET] Buscar Todos os usuários
-  - [POST] Login de usuários
-  - [Get] Buscar personagens por nome
+  - [ ] [POST] Criar Usuários
+  - [ ] [GET] Buscar Todos os usuários
+  - [ ] [POST] Login de usuários
+  - [ ] [Get] Buscar personagens por nome
 
 - Requisitos:
 
-  - Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login);
-  - Formatação do código utilizando Prettier;
-  - Documentação Swagger;
-  - Status Code corretos em todos os endpoints;
-  - Deploy no Heroku;
-  - Autenticação JWT.
-
-- [ ] --> Concluído?
+  - [x] Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login);
+  - [x] Formatação do código utilizando Prettier;
+  - [ ] Documentação Swagger;
+  - [ ] Status Code corretos em todos os endpoints;
+  - [ ] Deploy no Heroku;
+  - [ ] Autenticação JWT.
 
 ## Entidades
 
