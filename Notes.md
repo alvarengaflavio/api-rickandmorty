@@ -9,8 +9,9 @@
   - [DELETE] Exclusão de personagens por ID
 
 - Requisitos:
-  1 - Formatação do código utilizando Prettier;
-  2 - Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login).
+
+  - Formatação do código utilizando Prettier;
+  - Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login).
 
 - [ ] --> Concluído?
 
@@ -22,12 +23,13 @@
   - [Get] Buscar personagens por nome
 
 - Requisitos:
-  1 - Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login);
-  2 - Formatação do código utilizando Prettier;
-  3 - Documentação Swagger;
-  4 - Status Code corretos em todos os endpoints;
-  5 - Deploy no Heroku;
-  6 - Autenticação JWT.
+
+  - Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login);
+  - Formatação do código utilizando Prettier;
+  - Documentação Swagger;
+  - Status Code corretos em todos os endpoints;
+  - Deploy no Heroku;
+  - Autenticação JWT.
 
 - [ ] --> Concluído?
 
