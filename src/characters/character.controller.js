@@ -1,4 +1,5 @@
 import * as characterService from './character.service.js';
+import { CharacterEntity } from '../entities/Character.entity.js';
 
 export const findAllCharactersController = async (req, res) => {
   try {
@@ -13,5 +14,15 @@ export const findAllCharactersController = async (req, res) => {
 };
 
 export const createCharacterController = async (req, res) => {
-  console.log('Criado! kkk');
+  try {
+    CharacterEntity.validateJson(req.body);
+    console.log(req.body);
+    const newCharacter = new CharacterEntity(req.body);
+    const createdCharacter = await characterService.createCharacterService(
+      newCharacter,
+    );
+    res.status(201).send({ createdCharacter });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
 };

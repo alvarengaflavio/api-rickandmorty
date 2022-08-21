@@ -1,9 +1,8 @@
 export class CharacterEntity {
-  constructor(character, userId) {
-    this.id = character.id ?? undefined;
+  constructor(character) {
+    this.user = character.user;
     this.name = character.name;
-    this.image = character.image;
-    this.userId = userId;
+    this.imageUrl = character.imageUrl;
   }
 
   static validateJson(jsonChar) {
@@ -12,13 +11,10 @@ export class CharacterEntity {
     }
     if (
       !jsonChar.name ||
-      !jsonChar.name.length < 3 ||
-      !jsonChar.name.length > 20
+      jsonChar.name.length < 3 ||
+      jsonChar.name.length > 25
     ) {
       throw new Error('Invalid name');
-    }
-    if (!jsonChar.image) {
-      throw new Error('Invalid imageURL');
     }
   }
 
@@ -28,9 +24,9 @@ export class CharacterEntity {
 
   getCharacter() {
     return {
+      user: this.user,
       name: this.name,
-      image: this.image,
-      userId: this.userId,
+      imageUrl: this.imageUrl,
     };
   }
 }
