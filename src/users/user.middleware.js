@@ -1,13 +1,13 @@
+import { UserEntity } from '../entities/user.entity.js';
+
 export class UserMiddleware {
   static validateUserBody(req, res, next) {
     try {
-      const { name, email, password } = req.body;
-      if (!name || !email || !password) {
-        return res.status(400).send({ message: 'Missing parameters' });
-      }
+      const user = new UserEntity(req.body);
+      user.validate();
       next();
     } catch (err) {
-      res.status(500).send({ message: err.message });
+      res.status(400).send({ message: err.message });
     }
   }
 }

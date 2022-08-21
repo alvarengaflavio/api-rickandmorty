@@ -1,8 +1,8 @@
-import express from 'express';
+import { Router } from 'express';
 import * as characterController from './character.controller.js';
 import { CharacterMiddleware } from './character.middleware.js';
 
-export const router = express.Router();
+export const router = Router();
 
 // FIND ALL CHARACTERS
 router.get('/', characterController.findAllCharactersController);
