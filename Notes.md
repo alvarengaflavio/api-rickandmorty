@@ -33,7 +33,7 @@
 
 ## Entidades
 
-- Users
+### Users
 
   - name: `String`,
   - username: `String`,
@@ -41,7 +41,7 @@
   - password: `String`,
   - photo: `String`,
 
-- Character
+### Character
 
 * user: `String`,
 * name: `String`,
