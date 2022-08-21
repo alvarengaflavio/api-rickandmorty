@@ -1,6 +1,6 @@
 # Projeto API Rick and Morty
 
-- Primeira Entrega 22/08/2022
+- [ ] Primeira Entrega 22/08/2022
 
   - [GET] Leitura de todas os personagens
   - [GET] Leitura de personagens individuais (por ID)
@@ -14,7 +14,7 @@
 
 - [ ] --> Concluído?
 
-- Segunda Entrega 29/08/2022
+- [ ] Segunda Entrega 29/08/2022
 
   - [POST] Criar Usuários
   - [GET] Buscar Todos os usuários
