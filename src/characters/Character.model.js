@@ -16,3 +16,5 @@ const CharacterSchema = new Schema({
     required: true,
   },
 });
+
+export const Character = model('Character', CharacterSchema);
