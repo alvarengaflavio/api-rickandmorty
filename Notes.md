@@ -1,6 +1,6 @@
 # Projeto API Rick and Morty
 
-- 1 Entrega 22/08/2022
+- Primeira Entrega 22/08/2022
 
   - [GET] Leitura de todas os personagens
   - [GET] Leitura de personagens individuais (por ID)
@@ -12,9 +12,9 @@
   1 - Formatação do código utilizando Prettier;
   2 - Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login).
 
-[ ] --> Concluído?
+- [ ] --> Concluído?
 
-- 2 Entrega 29/08/2022
+- Segunda Entrega 29/08/2022
 
   - [POST] Criar Usuários
   - [GET] Buscar Todos os usuários
@@ -29,7 +29,7 @@
   5 - Deploy no Heroku;
   6 - Autenticação JWT.
 
-[ ] --> Concluído?
+- [ ] --> Concluído?
 
 ## Entidades
 
