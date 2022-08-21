@@ -81,6 +81,7 @@ Ao clicar no botão "Remover" dentro na tela de personagens by id, será redirec
 Para baixar o projeto, basta clicar [aqui](https://drive.google.com/file/d/1FAutpdj3nYIuwzfeoLwUOhWmybOvecSi/view?usp=sharing)
 
 ## Rotas
-![Rotas](spaces_85kl7UI0t2lbZjTHkUNg_uploads_git-blob-1ddd1800fd856e56bedbd33522bb2389df48694b_rm-api-docs.PNG?raw=true "Title")
+
+![Rotas](https://2315530342-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F85kl7UI0t2lbZjTHkUNg%2Fuploads%2Fgit-blob-1ddd1800fd856e56bedbd33522bb2389df48694b%2Frm-api-docs.PNG?alt=media?raw=true "Documentação de Rotas")
 
 Elas também podem ser encontras neste [endereço](https://rick-and-morty-server.herokuapp.com/api-docs)
