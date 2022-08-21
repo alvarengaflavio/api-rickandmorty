@@ -6,7 +6,7 @@ export class CharacterEntity {
     this.userId = userId;
   }
 
-  static ValidadeJson(jsonChar) {
+  static validateJson(jsonChar) {
     if (!jsonChar) {
       throw new Error("Character JSON is undefined");
     }
