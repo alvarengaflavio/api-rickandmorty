@@ -82,6 +82,6 @@ Para baixar o projeto, basta clicar [aqui](https://drive.google.com/file/d/1FAut
 
 ## Rotas
 
-![Rotas](https://2315530342-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F85kl7UI0t2lbZjTHkUNg%2Fuploads%2Fgit-blob-1ddd1800fd856e56bedbd33522bb2389df48694b%2Frm-api-docs.PNG?alt=media?raw=true "Documentação de Rotas")
+![Rotas](https://media.discordapp.net/attachments/798520358977929226/1010842418528137297/api-docs.PNG?width=1245&height=676 "Documentação de Rotas")
 
 Elas também podem ser encontras neste [endereço](https://rick-and-morty-server.herokuapp.com/api-docs)
