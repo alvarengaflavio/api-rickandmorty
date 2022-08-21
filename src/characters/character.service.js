@@ -19,3 +19,10 @@ export const findByIdService = async id => {
   const foundCharacter = await Character.findById(id);
   return foundCharacter;
 };
+
+export const updateCharacterServuce = async (id, characterObject) => {};
+
+export const deleteCharacterService = async id => {
+  const deletedCharacter = await Character.findByIdAndDelete(id);
+  return deletedCharacter;
+};

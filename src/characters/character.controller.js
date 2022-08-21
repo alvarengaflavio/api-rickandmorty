@@ -40,4 +40,16 @@ export const findByIdController = async (req, res) => {
 
 export const updateCharacterController = async (req, res) => {};
 
-export const deleteCharacterController = async (req, res) => {};
+export const deleteCharacterController = async (req, res) => {
+  try {
+    const deletedCharacter = await characterService.deleteCharacterService(
+      req.params.id,
+    );
+    if (!deletedCharacter) {
+      return res.status(404).send({ message: 'Character not found' });
+    }
+    res.status(200).send({ deletedCharacter });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
