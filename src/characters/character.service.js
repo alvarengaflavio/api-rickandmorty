@@ -13,3 +13,9 @@ export const createCharacterService = async newCharacter => {
   const createdCharacter = await Character.create(newCharacter.getCharacter());
   return createdCharacter;
 };
+
+export const findByIdService = async id => {
+  const foundCharacter = await Character.findById(id);
+  console.log(foundCharacter);
+  return foundCharacter;
+};

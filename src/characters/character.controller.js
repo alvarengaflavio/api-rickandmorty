@@ -26,3 +26,15 @@ export const createCharacterController = async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 };
+
+export const findByIdController = async (req, res) => {
+    try {
+        const foundCharacter = await characterService.findByIdService(req.params.id);
+        if (!foundCharacter) {
+        return res.status(404).send({ message: 'Character not found' });
+        }
+        res.status(200).send({ foundCharacter });
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+}
