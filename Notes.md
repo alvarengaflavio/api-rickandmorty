@@ -2,9 +2,9 @@
 
 - [ ] Primeira Entrega 22/08/2022
 
-  - [ ] [GET] Leitura de todas os personagens 
+  - [x] [GET] Leitura de todas os personagens
   - [ ] [GET] Leitura de personagens individuais (por ID)
-  - [ ] [POST] Criação de personagens
+  - [x] [POST] Criação de personagens
   - [ ] [PUT] Edição de personagens por ID
   - [ ] [DELETE] Exclusão de personagens por ID
 
@@ -35,17 +35,17 @@
 
 ### Users
 
-  - name: `String`,
-  - username: `String`,
-  - email: `String`,
-  - password: `String`,
-  - photo: `String`,
+- name: `String`,
+- username: `String`,
+- email: `String`,
+- password: `String`,
+- photo: `String`,
 
 ### Character
 
-* user: `String`,
-* name: `String`,
-* imageUrl: `String`,
+- user: `String`,
+- name: `String`,
+- imageUrl: `String`,
 
 ## Tela de login:
 
@@ -82,6 +82,6 @@ Para baixar o projeto, basta clicar [aqui](https://drive.google.com/file/d/1FAut
 
 ## Rotas
 
-![Rotas](https://media.discordapp.net/attachments/798520358977929226/1010842418528137297/api-docs.PNG?width=1245&height=676 "Documentação de Rotas")
+![Rotas](https://media.discordapp.net/attachments/798520358977929226/1010842418528137297/api-docs.PNG?width=1245&height=676 'Documentação de Rotas')
 
 Elas também podem ser encontras neste [endereço](https://rick-and-morty-server.herokuapp.com/api-docs)
