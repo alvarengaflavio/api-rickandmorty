@@ -15,7 +15,6 @@ export const findAllCharactersController = async (req, res) => {
 export const createCharacterController = async (req, res) => {
   try {
     const newCharacter = { ...req.body, user: req.userId };
-    console.log(newCharacter);
     const createdCharacter = await characterService.createCharacterService(
       newCharacter,
     );
