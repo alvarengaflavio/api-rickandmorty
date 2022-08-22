@@ -3,8 +3,7 @@ const { Schema, model } = mongoose;
 
 const CharacterSchema = new Schema({
   user: {
-    type: String,
-    // Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
