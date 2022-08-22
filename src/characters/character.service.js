@@ -2,7 +2,7 @@ import { Character } from './Character.model.js';
 import { CharacterEntity } from '../entities/Character.entity.js';
 
 export const findAllCharactersService = async userId => {
-  const characters = await Character.find({});
+  const characters = await Character.find({}).populate('user');
   if (!characters.length > 0) {
     return null;
   }
@@ -10,7 +10,7 @@ export const findAllCharactersService = async userId => {
 };
 
 export const createCharacterService = async characterObject => {
-  const newCharacter = new Character(characterObject);
+  const newCharacter = new CharacterEntity(characterObject);
   const createdCharacter = await Character.create(newCharacter.getCharacter());
   return createdCharacter;
 };

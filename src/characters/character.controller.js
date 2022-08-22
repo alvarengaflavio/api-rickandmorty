@@ -14,7 +14,8 @@ export const findAllCharactersController = async (req, res) => {
 
 export const createCharacterController = async (req, res) => {
   try {
-    const newCharacter = req.body;
+    const newCharacter = { ...req.body, user: req.userId };
+    console.log(newCharacter);
     const createdCharacter = await characterService.createCharacterService(
       newCharacter,
     );
@@ -40,9 +41,10 @@ export const findByIdController = async (req, res) => {
 
 export const updateCharacterController = async (req, res) => {
   try {
+    const modifiedCharacter = { ...req.body, user: req.userId };
     const updatedCharacter = await characterService.updateCharacterService(
       req.params.id,
-      req.body,
+      modifiedCharacter,
     );
     if (!updatedCharacter) {
       return res.status(404).send({ message: 'Character Id not found' });
