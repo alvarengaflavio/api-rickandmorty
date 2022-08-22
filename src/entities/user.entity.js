@@ -28,7 +28,7 @@ export class UserEntity {
     ) {
       throw new Error('Invalid password');
     }
-    if (!this.photo || this.photo.length < 4 || this.photo.length > 150) {
+    if (!this.photo || this.photo.length < 4 || this.photo.length > 200) {
       console.log(this.photo);
       throw new Error('Invalid photoURL');
     }
