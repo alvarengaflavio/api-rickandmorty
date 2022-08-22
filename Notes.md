@@ -17,9 +17,9 @@
 
 - [ ] Segunda Entrega 29/08/2022
 
-  - [ ] [POST] Criar Usuários
-  - [ ] [GET] Buscar Todos os usuários
-  - [ ] [POST] Login de usuários
+  - [x] [POST] Criar Usuários
+  - [x] [GET] Buscar Todos os usuários
+  - [x] [POST] Login de usuários
   - [ ] [Get] Buscar personagens por nome
 
 - Requisitos:
@@ -29,7 +29,7 @@
   - [ ] Documentação Swagger;
   - [ ] Status Code corretos em todos os endpoints;
   - [ ] Deploy no Heroku;
-  - [ ] Autenticação JWT.
+  - [x] Autenticação JWT.
 
 ## Entidades
 
