@@ -9,34 +9,39 @@ export class UserEntity {
 
   validate() {
     if (!this.name || this.name.length < 3 || this.name.length > 25) {
-      throw new Error('Invalid name');
+      throw { name: 'ValidationError', message: 'Invalid name' };
     }
     if (
       !this.username ||
       this.username.length < 3 ||
       this.username.length > 25
     ) {
-      throw new Error('Invalid username');
+      throw { name: 'ValidationError', message: 'Invalid username' };
     }
     if (!this.email || !this.validateEmail()) {
-      throw new Error('Invalid email');
+      throw { name: 'ValidationError', message: 'Invalid email' };
     }
     if (
       !this.password ||
       this.password.length < 3 ||
       this.password.length > 30
     ) {
-      throw new Error('Invalid password');
+      throw { name: 'ValidationError', message: 'Invalid password' };
     }
-    if (!this.photo || this.photo.length < 4 || this.photo.length > 200) {
-      console.log(this.photo);
-      throw new Error('Invalid photoURL');
+    if (!this.photo || this.photo.length < 4 || this.photo.length > 250) {
+      throw { name: 'ValidationError', message: 'Invalid photo' };
     }
   }
 
   validateEmail() {
     return /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
       this.email,
+    );
+  }
+
+  static validadeEmailJson(email) {
+    return /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email,
     );
   }
 
