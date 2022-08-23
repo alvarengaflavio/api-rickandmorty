@@ -1,4 +1,11 @@
 import jwt from 'jsonwebtoken';
+import { User } from '../users/user.model.js';
+
+
+export const findByEmailLogin = async email => {
+  const user = await User.findOne({ email }).select('+password');
+  return user;
+};
 
 /////////////////////////////////////////////////////////////////////
 // SERVICE: AuthService
