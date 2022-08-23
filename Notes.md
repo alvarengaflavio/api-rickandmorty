@@ -20,14 +20,14 @@
   - [x] [POST] Criar Usuários
   - [x] [GET] Buscar Todos os usuários
   - [x] [POST] Login de usuários
-  - [ ] [Get] Buscar personagens por nome
+  - [x] [Get] Buscar personagens por nome
 
 - Requisitos:
 
   - [x] Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login);
   - [x] Formatação do código utilizando Prettier;
   - [ ] Documentação Swagger;
-  - [ ] Status Code corretos em todos os endpoints;
+  - [x] Status Code corretos em todos os endpoints;
   - [ ] Deploy no Heroku;
   - [x] Autenticação JWT.
 
@@ -85,3 +85,9 @@ Para baixar o projeto, basta clicar [aqui](https://drive.google.com/file/d/1FAut
 ![Rotas](https://media.discordapp.net/attachments/798520358977929226/1010842418528137297/api-docs.PNG?width=1245&height=676 'Documentação de Rotas')
 
 Elas também podem ser encontras neste [endereço](https://rick-and-morty-server.herokuapp.com/api-docs)
+
+---
+
+Linguagem: JavaScript
+Tecnologias: NodeJs, Express e MongoDB
+Carga horária: 40 horas
