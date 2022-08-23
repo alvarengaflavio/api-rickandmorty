@@ -9,6 +9,7 @@ export const router = Router();
 router.get(
   '/',
   authMiddleware,
+  characterMiddleware.validateQuery,
   characterController.findAllCharactersController,
 );
 // CREATE CHARACTER

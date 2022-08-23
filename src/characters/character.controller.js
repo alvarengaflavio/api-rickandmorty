@@ -7,7 +7,31 @@ export const findAllCharactersController = async (req, res, next) => {
     if (characters === null) {
       throw { name: 'NotFoundError', message: 'No characters found' };
     }
-    res.status(200).send({ characters });
+    const { limit, offset } = req.query;
+    const total = characters.length;
+    const paginatedCharacters = characters.slice(offset, offset + limit);
+
+    // res.status(200).send(characters);
+    res.status(200).send({
+      nextUrl: `/characters?limit=${limit}&offset=${offset + limit}`,
+      previousUrl: null,
+      limit: limit,
+      offset: offset,
+      total: total,
+      results: paginatedCharacters.map(character => ({
+        id: character._id,
+        user: {
+          _id: character.user._id,
+          name: character.user.name,
+          username: character.user.username,
+          email: character.user.email,
+          photo: character.user.photo,
+          __v: character.user.__v,
+        },
+        name: character.name,
+        imageUrl: character.imageUrl,
+      })),
+    });
   } catch (err) {
     ErrorHandler.handleError(err, req, res, next);
   }
@@ -32,7 +56,7 @@ export const findByIdController = async (req, res, next) => {
     );
     if (!foundCharacter)
       throw { name: 'NotFoundError', message: 'Character not found' };
-    res.status(200).send( foundCharacter );
+    res.status(200).send(foundCharacter);
   } catch (err) {
     ErrorHandler.handleError(err, req, res, next);
   }
