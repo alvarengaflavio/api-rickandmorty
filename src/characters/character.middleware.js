@@ -1,12 +1,15 @@
 import { CharacterEntity } from '../entities/character.entity.js';
-import mongoose from 'mongoose';
 import { ErrorHandler } from '../.error/error.handler.js';
+import mongoose from 'mongoose';
 const { ObjectId } = mongoose.Types;
 
 export class CharacterMiddleware {
   static validateBody(req, res, next) {
     try {
-      CharacterEntity.validateJson(req.body);
+      const character = new CharacterEntity(req.body);
+      character.validate();
+      character.user = req.userId;
+      req.body = character.getCharacter();
       next();
     } catch (err) {
       ErrorHandler.handleError(err, req, res, next);

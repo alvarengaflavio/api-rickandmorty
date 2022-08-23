@@ -1,5 +1,4 @@
 import { Character } from './Character.model.js';
-import { CharacterEntity } from '../entities/Character.entity.js';
 
 export const findAllCharactersService = async userId => {
   const characters = await Character.find({}).populate('user');
@@ -8,8 +7,7 @@ export const findAllCharactersService = async userId => {
 };
 
 export const createCharacterService = async characterObject => {
-  const newCharacter = new CharacterEntity(characterObject);
-  const createdCharacter = await Character.create(newCharacter.getCharacter());
+  const createdCharacter = await Character.create(characterObject);
   return createdCharacter;
 };
 

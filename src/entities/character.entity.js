@@ -28,7 +28,7 @@ export class CharacterEntity {
     }
   }
 
-  validade() {
+  validate() {
     if (!this.name || this.name.length < 3 || this.name.length > 30) {
       throw { name: 'ValidationError', message: 'Invalid name' };
     }
