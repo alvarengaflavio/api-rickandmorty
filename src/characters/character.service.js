@@ -12,7 +12,8 @@ export const createCharacterService = async characterObject => {
 };
 
 export const findByIdService = async id => {
-  const foundCharacter = await Character.findById(id).populate('user');
+  // na documentação oficial não tem populate('user')
+  const foundCharacter = await Character.findById(id);
   return foundCharacter;
 };
 

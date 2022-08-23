@@ -32,7 +32,7 @@ export const findByIdController = async (req, res, next) => {
     );
     if (!foundCharacter)
       throw { name: 'NotFoundError', message: 'Character not found' };
-    res.status(200).send({ foundCharacter });
+    res.status(200).send( foundCharacter );
   } catch (err) {
     ErrorHandler.handleError(err, req, res, next);
   }
