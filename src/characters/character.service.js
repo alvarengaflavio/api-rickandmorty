@@ -12,7 +12,7 @@ export const createCharacterService = async characterObject => {
 };
 
 export const findByIdService = async id => {
-  const foundCharacter = await Character.findById(id);
+  const foundCharacter = await Character.findById(id).populate('user');
   return foundCharacter;
 };
 
