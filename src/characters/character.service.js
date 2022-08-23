@@ -39,3 +39,39 @@ export const searchCharacterService = async searchTerm => {
     .populate('user');
   return foundCharacters;
 };
+
+export const previousUrl = async (limit, offset, total) => {
+  const previousUrl = `/characters?limit=${limit}&offset=${offset - limit}`;
+  if (offset - limit < 0) return null;
+  return previousUrl;
+};
+
+export const nextUrl = async (limit, offset, total) => {
+  const nextUrl = `/characters?limit=${limit}&offset=${offset + limit}`;
+  if (offset + limit > total) return null;
+  return nextUrl;
+}
+
+export const getPaginatedObject = async (characters, limit, offset, total) => {
+  const paginatedCharacters = {
+    nextUrl: await nextUrl(limit, offset, total),
+    previousUrl: await previousUrl(limit, offset, total),
+    limit: limit,
+    offset: offset,
+    total: total,
+    results: characters.map(character => ({
+      id: character._id,
+      user: {
+        _id: character.user._id,
+        name: character.user.name,
+        username: character.user.username,
+        email: character.user.email,
+        photo: character.user.photo,
+        __v: character.user.__v,
+      },
+      name: character.name,
+      imageUrl: character.imageUrl,
+    })),
+  }
+  return paginatedCharacters;
+}
