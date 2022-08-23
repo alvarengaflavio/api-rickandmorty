@@ -45,7 +45,7 @@ export const updateCharacterController = async (req, res, next) => {
       req.params.id,
       modifiedCharacter,
     );
-    if (characters === null)
+    if (updatedCharacter === null)
       throw { name: 'NotFoundError', message: 'Character Id not found' };
 
     res.status(200).send({ updatedCharacter });
