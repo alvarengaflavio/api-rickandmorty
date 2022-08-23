@@ -16,14 +16,13 @@ export const findAllUsersController = async (req, res, next) => {
 
 export const createUserController = async (req, res, next) => {
   try {
-    const { email } = req.body;
-    const foundUser = await userService.findByEmailService(email);
+    const foundUser = await userService.findByEmailService(req.body.email);
     if (foundUser)
       throw { name: 'ConflictError', message: 'User already exists' };
 
     const user = await userService.createUserService(req.body);
     if (!user) {
-      throw new Error('User not created');
+      throw { name: 'InternalServerError', message: 'User not created' };
     }
     const token = generateToken(user.id);
 

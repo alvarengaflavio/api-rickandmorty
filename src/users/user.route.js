@@ -1,10 +1,11 @@
+import { authMiddleware } from '../auth/auth.middleware.js';
 import { Router } from 'express';
-import * as userController from './user.controller.js';
 import { UserMiddleware } from './user.middleware.js';
+import * as userController from './user.controller.js';
 
 export const router = Router();
 
-router.get('/', userController.findAllUsersController);
+router.get('/', authMiddleware, userController.findAllUsersController);
 router.post(
   '/create',
   UserMiddleware.validateUserBody,
