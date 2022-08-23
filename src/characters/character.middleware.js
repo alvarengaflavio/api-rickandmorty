@@ -30,8 +30,16 @@ export class CharacterMiddleware {
 
   static validateQuery(req, res, next) {
     try {
-      const nameDefault = '';
-      if (!req.query.name) req.query.name = nameDefault;
+      const defaultQuery = { name: '', offset: 0, limit: 8 };
+      let { offset, limit, name } = req.query;
+      [offset, limit] = [offset, limit].map(Number);
+      if (!name) name = defaultQuery.name;
+      if (!offset) offset = defaultQuery.offset;
+      if (!limit) limit = defaultQuery.limit;
+      if (offset < 0 || limit < 0)
+        throw { name: 'ValidationError', message: 'Invalid query parameters' };
+      req.query = { name, offset, limit };
+
       next();
     } catch (err) {
       ErrorHandler.handleError(err, req, res, next);
