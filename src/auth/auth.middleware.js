@@ -47,7 +47,6 @@ export const authLoginObject = async (req, res, next) => {
 const findByIdAuth = async id => {
   try {
     const user = await User.findOne({ id });
-    console.log(user);
     return user;
   } catch (err) {
     throw { name: 'InternalServerError', message: 'Error finding user' };
