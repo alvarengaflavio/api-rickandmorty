@@ -7,21 +7,37 @@ export class CharacterEntity {
 
   static validateJson(jsonChar) {
     if (!jsonChar) {
-      throw new Error('Character JSON is undefined');
+      throw {
+        name: 'ValidationError',
+        message: 'Character must be a JSON object',
+      };
     }
     if (
       !jsonChar.name ||
       jsonChar.name.length < 3 ||
-      jsonChar.name.length > 25
+      jsonChar.name.length > 30
     ) {
-      throw new Error('Invalid name');
+      throw { name: 'ValidationError', message: 'Invalid name' };
     }
     if (
       !jsonChar.imageUrl ||
       jsonChar.imageUrl.length < 3 ||
-      jsonChar.imageUrl.length > 80
+      jsonChar.imageUrl.length > 250
     ) {
-      throw new Error('Invalid imageUrl');
+      throw { name: 'ValidationError', message: 'Invalid imageimageUrl' };
+    }
+  }
+
+  validade() {
+    if (!this.name || this.name.length < 3 || this.name.length > 30) {
+      throw { name: 'ValidationError', message: 'Invalid name' };
+    }
+    if (
+      !this.imageUrl ||
+      this.imageUrl.length < 3 ||
+      this.imageUrl.length > 250
+    ) {
+      throw { name: 'ValidationError', message: 'Invalid imageUrl' };
     }
   }
 
