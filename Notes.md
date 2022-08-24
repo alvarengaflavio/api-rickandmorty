@@ -15,7 +15,7 @@
 
 ---
 
-- [ ] Segunda Entrega 29/08/2022
+- [x] Segunda Entrega 29/08/2022
 
   - [x] [POST] Criar Usuários
   - [x] [GET] Buscar Todos os usuários
@@ -26,9 +26,9 @@
 
   - [x] Persistência de dados no MongoDB [Atlas](https://account.mongodb.com/account/login);
   - [x] Formatação do código utilizando Prettier;
-  - [ ] Documentação Swagger;
+  - [x] Documentação Swagger;
   - [x] Status Code corretos em todos os endpoints;
-  - [ ] Deploy no Heroku;
+  - [x] Deploy no Heroku;
   - [x] Autenticação JWT.
 
 ## Entidades
