@@ -133,10 +133,12 @@
                 "$ref": "#/components/schemas/Character"
               },
               "examples": {
-                "Character": {
-                  "user": "",
-                  "name": "Rick Sanchez",
-                  "imageUrl": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                "Characters": {
+                  "value": {
+                    "user": "",
+                    "name": "Rick Sanchez",
+                    "imageUrl": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                  }
                 }
               }
             }
@@ -253,14 +255,6 @@
             "name": "id",
             "type": "string",
             "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Character object",
-            "schema": {
-              "$ref": "#/components/schemas/Character"
-            }
           }
         ],
         "requestBody": {
@@ -270,9 +264,11 @@
                 "$ref": "#/components/schemas/Character"
               },
               "examples": {
-                "Character": {
-                  "name": "Rick Sanchez",
-                  "imageUrl": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                "Characters": {
+                  "value": {
+                    "name": "Rick Sanchez",
+                    "imageUrl": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                  }
                 }
               }
             }
