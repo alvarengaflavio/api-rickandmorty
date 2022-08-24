@@ -1,14 +1,30 @@
 import { Character } from './Character.model.js';
 
-export const findAllCharactersService = async userId => {
+export const findAllCharactersService = async query => {
   const characters = await Character.find({}).populate('user');
   if (!characters.length > 0) return null;
-  return characters;
+  const { limit, offset } = query;
+  const total = characters.length;
+  const paginatedCharacters = characters.slice(offset, offset + limit);
+  const findAllResult = await getPaginatedObject(
+    paginatedCharacters,
+    limit,
+    offset,
+    total,
+  );
+  return findAllResult;
 };
 
 export const createCharacterService = async characterObject => {
   const createdCharacter = await Character.create(characterObject);
-  return createdCharacter;
+  return {
+    message: 'Character created successfully',
+    character: {
+      id: createdCharacter._id,
+      name: createdCharacter.name,
+      imageUrl: createdCharacter.imageUrl,
+    },
+  };
 };
 
 export const findByIdService = async id => {
@@ -43,19 +59,19 @@ export const searchCharacterService = async searchTerm => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////  INTERN FUNCTIONS  //////////////////////////////////////////////////////////////////
-export const previousUrl = async (limit, offset, total) => {
+const previousUrl = async (limit, offset, total) => {
   const previousUrl = `/characters?limit=${limit}&offset=${offset - limit}`;
   if (offset - limit < 0) return null;
   return previousUrl;
 };
 
-export const nextUrl = async (limit, offset, total) => {
+const nextUrl = async (limit, offset, total) => {
   const nextUrl = `/characters?limit=${limit}&offset=${offset + limit}`;
   if (offset + limit > total) return null;
   return nextUrl;
 };
 
-export const getPaginatedObject = async (characters, limit, offset, total) => {
+const getPaginatedObject = async (characters, limit, offset, total) => {
   const paginatedCharacters = {
     nextUrl: await nextUrl(limit, offset, total),
     previousUrl: await previousUrl(limit, offset, total),
@@ -67,7 +83,7 @@ export const getPaginatedObject = async (characters, limit, offset, total) => {
   return paginatedCharacters;
 };
 
-export const getCharacterObject = async characters => {
+const getCharacterObject = async characters => {
   const characterObject = characters.map(character => ({
     id: character._id,
     user: {

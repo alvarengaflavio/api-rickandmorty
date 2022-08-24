@@ -3,20 +3,13 @@ import { ErrorHandler } from '../.error/error.handler.js';
 
 export const findAllCharactersController = async (req, res, next) => {
   try {
-    const characters = await characterService.findAllCharactersService();
+    const characters = await characterService.findAllCharactersService(
+      req.query,
+    );
     if (characters === null) {
       throw { name: 'NotFoundError', message: 'No characters found' };
     }
-    let { limit, offset } = req.query;
-    const total = characters.length;
-    const paginatedCharacters = characters.slice(offset, offset + limit);
-    const result = await characterService.getPaginatedObject(
-      paginatedCharacters,
-      limit,
-      offset,
-      total,
-    );
-    res.status(200).send(result);
+    res.status(200).send(characters);
   } catch (err) {
     ErrorHandler.handleError(err, req, res, next);
   }
@@ -28,14 +21,7 @@ export const createCharacterController = async (req, res, next) => {
     const createdCharacter = await characterService.createCharacterService(
       newCharacter,
     );
-    res.status(201).send({
-      message: 'Character created successfully',
-      character: {
-        id: createdCharacter._id,
-        name: createdCharacter.name,
-        imageUrl: createdCharacter.imageUrl,
-      },
-    });
+    res.status(201).send(createdCharacter);
   } catch (err) {
     ErrorHandler.handleError(err, req, res, next);
   }
