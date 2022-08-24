@@ -23,6 +23,8 @@ Example Json:
 }
 ```
 
+---
+
 #### GET
 
 PATH: `/users`
@@ -44,6 +46,8 @@ Response body
 }
 ```
 
+---
+
 ### Auth
 
 #### POST
@@ -58,6 +62,8 @@ Request body:
   "password": "12345"
 }
 ```
+
+---
 
 ### Character
 
@@ -75,6 +81,8 @@ Request body:
   "imageUrl": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
 }
 ```
+
+---
 
 #### GET
 
@@ -126,6 +134,8 @@ Response body:
 }
 ```
 
+---
+
 #### GET
 
 PATH: `/character/find/{id}`
@@ -134,6 +144,8 @@ Parameters:
 
 - `path`
   - `id` - String
+
+---
 
 #### PUT
 
@@ -156,6 +168,8 @@ Parameters:
 }
 ```
 
+---
+
 #### DELETE
 
 PATH: `/character/delete/{id}`
@@ -167,6 +181,8 @@ Parameters:
 
   - `id` - String
 
+---
+
 #### GET
 
 PATH: `/character/search`
@@ -176,6 +192,8 @@ Parameters:
 - `query`
 
   - `name` - String
+
+---
 
 ## Schemas
 
