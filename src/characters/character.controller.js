@@ -28,7 +28,14 @@ export const createCharacterController = async (req, res, next) => {
     const createdCharacter = await characterService.createCharacterService(
       newCharacter,
     );
-    res.status(201).send({ createdCharacter });
+    res.status(201).send({
+      message: 'Character created successfully',
+      character: {
+        id: createdCharacter._id,
+        name: createdCharacter.name,
+        imageUrl: createdCharacter.imageUrl,
+      },
+    });
   } catch (err) {
     ErrorHandler.handleError(err, req, res, next);
   }
