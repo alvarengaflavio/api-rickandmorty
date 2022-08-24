@@ -2,7 +2,6 @@ const { User } = require('./User.model');
 
 const findAllUsersService = async () => {
   const users = await User.find();
-  console.log(users);
   return users;
 };
 

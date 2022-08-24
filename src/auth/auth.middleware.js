@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
 const { ErrorHandler } = require('../.error/error.handler');
 const { AuthEntity } = require('../entities/auth.entity');
 const { User } = require('../users/User.model');
+const jwt = require('jsonwebtoken');
 
 const authMiddleware = async (req, res, next) => {
   try {
@@ -46,7 +46,7 @@ const authLoginObject = async (req, res, next) => {
 //////////////////////////////////////////////////////////////////////////////////////
 const findByIdAuth = async id => {
   try {
-    const user = await User.findOne({ id });
+    const user = await User.findById(id);
     return user;
   } catch (err) {
     throw { name: 'InternalServerError', message: 'Error finding user' };
