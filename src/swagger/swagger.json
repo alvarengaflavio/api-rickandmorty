@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "API Rick and Morty",
-    "description": "API contining character from Rick and Morty cartoon",
+    "title": "API Rick and Morty.",
+    "description": "API contining character from Rick and Morty cartoon.",
     "contact": {
       "email": "flavio.alva@outlook.com"
     },
@@ -21,8 +21,8 @@
   "paths": {
     "/users/create": {
       "post": {
-        "summary": "Create a new user",
-        "description": "Route responsible for creating a new user",
+        "summary": "Create a new user.",
+        "description": "Route responsible for creating a new user.",
         "tags": ["Users"],
         "requestBody": {
           "content": {
@@ -64,8 +64,8 @@
     },
     "/users": {
       "get": {
-        "summary": "Get all users",
-        "description": "Route responsible for getting all users",
+        "summary": "Get all users.",
+        "description": "Route responsible for getting all users.",
         "tags": ["Users"],
         "security": [{ "bearerAuth": [] }],
         "responses": {
@@ -90,8 +90,8 @@
     },
     "/auth/login": {
       "post": {
-        "summary": "Login",
-        "description": "Route responsible for creating a new user",
+        "summary": "Login.",
+        "description": "Route responsible for login users.",
         "tags": ["Auth"],
         "requestBody": {
           "content": {
@@ -122,8 +122,8 @@
     },
     "/characters/create": {
       "post": {
-        "summary": "Create a new character",
-        "description": "Route responsible for creating a new character",
+        "summary": "Create a new character.",
+        "description": "Route responsible for creating a new character.",
         "tags": ["Characters"],
         "security": [{ "bearerAuth": [] }],
         "requestBody": {
@@ -167,8 +167,8 @@
     },
     "/characters": {
       "get": {
-        "summary": "Get all characters",
-        "description": "Route responsible for creating new characters",
+        "summary": "Get all characters.",
+        "description": "Route responsible for creating new characters.",
         "tags": ["Characters"],
         "security": [{ "bearerAuth": [] }],
         "parameters": [
@@ -208,7 +208,7 @@
     },
     "/characters/find/{id}": {
       "get": {
-        "summary": "Get a character by id",
+        "summary": "Get a character by id.",
         "description": "Route responsible for getting a character by ID.",
         "tags": ["Characters"],
         "security": [{ "bearerAuth": [] }],
@@ -245,7 +245,7 @@
     },
     "/characters/update/{id}": {
       "put": {
-        "summary": "Update a character by id",
+        "summary": "Update a character by id.",
         "description": "Route responsible for updating a character by ID.",
         "tags": ["Characters"],
         "security": [{ "bearerAuth": [] }],
