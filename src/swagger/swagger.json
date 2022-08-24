@@ -212,7 +212,7 @@
         "security": [{ "bearerAuth": [] }],
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "id",
             "type": "string",
             "required": true
@@ -249,7 +249,7 @@
         "security": [{ "bearerAuth": [] }],
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "id",
             "type": "string",
             "required": true
@@ -301,7 +301,7 @@
         "security": [{ "bearerAuth": [] }],
         "parameters": [
           {
-            "in": "query",
+            "in": "path",
             "name": "id",
             "type": "string",
             "required": true
