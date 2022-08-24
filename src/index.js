@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-const port = process.env.PORT_PROD ?? process.env.PORT_DEV;
+const port = process.env.PORT ?? process.env.PORT_DEV;
 const app = express();
 
 connectToDatabase();
