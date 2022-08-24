@@ -183,18 +183,18 @@ Parameters:
 
 ```
 User    {
-    name	    string
-    username	string
-    email	    string
-    password	string
-    photo	    string
+    name        string
+    username    string
+    email       string
+    password    string
+    photo       string
 }
 ```
 
 ### Character
 
 ```
-    user	    string
+    user        string
     name        string
     imageUrl    string
 ```
