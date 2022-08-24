@@ -1,8 +1,8 @@
-import * as authService from './auth.service.js';
-import { ErrorHandler } from '../.error/error.handler.js';
-import bcrypt from 'bcrypt';
+const authService = require('../auth/auth.service');
+const { ErrorHandler } = require('../.error/error.handler');
+const bcrypt = require('bcrypt');
 
-export const loginController = async (req, res, next) => {
+const loginController = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const user = await authService.findByEmailLogin(email);
@@ -18,3 +18,5 @@ export const loginController = async (req, res, next) => {
     ErrorHandler.handleError(err, req, res, next);
   }
 };
+
+module.exports = { loginController };

@@ -1,7 +1,7 @@
-import * as characterService from './character.service.js';
-import { ErrorHandler } from '../.error/error.handler.js';
+const characterService = require('./character.service');
+const { ErrorHandler } = require('../.error/error.handler');
 
-export const findAllCharactersController = async (req, res, next) => {
+const findAllCharactersController = async (req, res, next) => {
   try {
     const characters = await characterService.findAllCharactersService(
       req.query,
@@ -15,7 +15,7 @@ export const findAllCharactersController = async (req, res, next) => {
   }
 };
 
-export const createCharacterController = async (req, res, next) => {
+const createCharacterController = async (req, res, next) => {
   try {
     const newCharacter = { ...req.body };
     const createdCharacter = await characterService.createCharacterService(
@@ -27,7 +27,7 @@ export const createCharacterController = async (req, res, next) => {
   }
 };
 
-export const findByIdController = async (req, res, next) => {
+const findByIdController = async (req, res, next) => {
   try {
     const foundCharacter = await characterService.findByIdService(
       req.params.id,
@@ -40,7 +40,7 @@ export const findByIdController = async (req, res, next) => {
   }
 };
 
-export const updateCharacterController = async (req, res, next) => {
+const updateCharacterController = async (req, res, next) => {
   try {
     const modifiedCharacter = { ...req.body };
     const updatedCharacter = await characterService.updateCharacterService(
@@ -56,7 +56,7 @@ export const updateCharacterController = async (req, res, next) => {
   }
 };
 
-export const deleteCharacterController = async (req, res, next) => {
+const deleteCharacterController = async (req, res, next) => {
   try {
     const deletedCharacter = await characterService.deleteCharacterService(
       req.params.id,
@@ -69,7 +69,7 @@ export const deleteCharacterController = async (req, res, next) => {
   }
 };
 
-export const searchCharacterController = async (req, res, next) => {
+const searchCharacterController = async (req, res, next) => {
   try {
     const foundCharacters = await characterService.searchCharacterService(
       req.query.name,
@@ -78,4 +78,13 @@ export const searchCharacterController = async (req, res, next) => {
   } catch (err) {
     ErrorHandler.handleError(err, req, res, next);
   }
+};
+//////////////////////////////////////////////////////////////////////////
+module.exports = {
+  findAllCharactersController,
+  createCharacterController,
+  findByIdController,
+  updateCharacterController,
+  deleteCharacterController,
+  searchCharacterController,
 };

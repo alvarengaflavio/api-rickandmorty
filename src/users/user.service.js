@@ -1,22 +1,30 @@
-import { User } from './user.model.js';
+const { User } = require('./User.model');
 
-export const findAllUsersService = async () => {
+const findAllUsersService = async () => {
   const users = await User.find();
+  console.log(users);
   return users;
 };
 
-export const createUserService = async userParam => {
+const createUserService = async userParam => {
   const newUser = await User.create(userParam);
   return newUser;
 };
 
 /////////////////////////////////////////////////////////////////
-export const findByEmailService = async email => {
+const findByEmailService = async email => {
   const user = await User.findOne({ email });
   return user;
 };
 
-export const findByIdService = async id => {
+const findByIdService = async id => {
   const user = await User.findById(id);
   return user;
+};
+/////////////////////////////////////////////////////////////////
+module.exports = {
+  findAllUsersService,
+  createUserService,
+  findByEmailService,
+  findByIdService,
 };

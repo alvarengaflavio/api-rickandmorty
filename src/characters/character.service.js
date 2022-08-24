@@ -1,6 +1,6 @@
-import { Character } from './Character.model.js';
+const { Character } = require('./Character.model');
 
-export const findAllCharactersService = async query => {
+const findAllCharactersService = async query => {
   const characters = await Character.find({}).populate('user');
   if (!characters.length > 0) return null;
   const { limit, offset } = query;
@@ -15,7 +15,7 @@ export const findAllCharactersService = async query => {
   return findAllResult;
 };
 
-export const createCharacterService = async characterObject => {
+const createCharacterService = async characterObject => {
   const createdCharacter = await Character.create(characterObject);
   return {
     message: 'Character created successfully',
@@ -27,13 +27,13 @@ export const createCharacterService = async characterObject => {
   };
 };
 
-export const findByIdService = async id => {
+const findByIdService = async id => {
   // na documentação oficial não tem populate('user')
   const foundCharacter = await Character.findById(id);
   return foundCharacter;
 };
 
-export const updateCharacterService = async (id, characterObject) => {
+const updateCharacterService = async (id, characterObject) => {
   const updatedCharacter = await Character.findById(id);
   if (!updatedCharacter) return null;
   updatedCharacter.name = characterObject.name;
@@ -42,12 +42,12 @@ export const updateCharacterService = async (id, characterObject) => {
   return updatedCharacter;
 };
 
-export const deleteCharacterService = async id => {
+const deleteCharacterService = async id => {
   const deletedCharacter = await Character.findByIdAndDelete(id);
   return deletedCharacter;
 };
 
-export const searchCharacterService = async searchTerm => {
+const searchCharacterService = async searchTerm => {
   const foundCharacters = await findByNameAndPopulate(searchTerm);
   if (!foundCharacters.length > 0)
     throw { name: 'NotFoundError', message: 'No characters found' };
@@ -107,4 +107,13 @@ const findByNameAndPopulate = async searchTerm => {
     .sort({ name: 1 })
     .populate('user');
   return chracterList;
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////
+module.exports = {
+  findAllCharactersService,
+  createCharacterService,
+  findByIdService,
+  updateCharacterService,
+  deleteCharacterService,
+  searchCharacterService,
 };

@@ -1,9 +1,8 @@
-import { CharacterEntity } from '../entities/character.entity.js';
-import { ErrorHandler } from '../.error/error.handler.js';
-import mongoose from 'mongoose';
-const { ObjectId } = mongoose.Types;
+const { CharacterEntity } = require('../entities/character.entity');
+const { ErrorHandler } = require('../.error/error.handler');
+const { ObjectId } = require('mongoose').Types;
 
-export class CharacterMiddleware {
+class CharacterMiddleware {
   static validateBody(req, res, next) {
     try {
       const character = new CharacterEntity(req.body);
@@ -46,3 +45,5 @@ export class CharacterMiddleware {
     }
   }
 }
+///////////////////////////////////////////////////////////////////////////////////
+module.exports = CharacterMiddleware;

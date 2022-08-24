@@ -1,4 +1,4 @@
-export class CharacterEntity {
+class CharacterEntity {
   constructor(character) {
     this.user = character.user;
     this.name = character.name;
@@ -53,3 +53,5 @@ export class CharacterEntity {
     };
   }
 }
+////////////////////////////////////////////////////////////////////////////////
+module.exports = { CharacterEntity };

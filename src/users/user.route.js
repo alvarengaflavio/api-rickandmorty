@@ -1,9 +1,7 @@
-import { authMiddleware } from '../auth/auth.middleware.js';
-import { Router } from 'express';
-import { UserMiddleware } from './user.middleware.js';
-import * as userController from './user.controller.js';
-
-export const router = Router();
+const { authMiddleware } = require('../auth/auth.middleware');
+const { UserMiddleware } = require('./user.middleware');
+const userController = require('./user.controller');
+const router = require('express').Router();
 
 router.get('/', authMiddleware, userController.findAllUsersController);
 router.post(
@@ -11,3 +9,5 @@ router.post(
   UserMiddleware.validateUserBody,
   userController.createUserController,
 );
+//////////////////////////////////////////////////////////////////////
+module.exports = router;

@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
-const { connect } = mongoose;
+const { connect } = require('mongoose');
 
-export const connectToDatabase = async () => {
+const connectToDatabase = async () => {
   try {
     console.log('Connecting to database...');
     await connect(process.env.DATA_URL, {
@@ -14,3 +13,5 @@ export const connectToDatabase = async () => {
     console.log(`Error connecting to database: ${err}`);
   }
 };
+////////////////////////////////////////////////////////////
+module.exports = { connectToDatabase };

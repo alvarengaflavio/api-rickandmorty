@@ -1,9 +1,7 @@
-import { Router } from 'express';
-import * as characterController from './character.controller.js';
-import { CharacterMiddleware as characterMiddleware } from './character.middleware.js';
-import { authMiddleware } from '../auth/auth.middleware.js';
-
-export const router = Router();
+const router = require('express').Router();
+const characterController = require('./character.controller');
+const characterMiddleware = require('./character.middleware');
+const { authMiddleware } = require('../auth/auth.middleware');
 
 // FIND ALL CHARACTERS
 router.get(
@@ -48,3 +46,5 @@ router.get(
   characterMiddleware.validateQuery,
   characterController.searchCharacterController,
 );
+///////////////////////////////////////////////////////////
+module.exports = router;

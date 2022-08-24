@@ -1,9 +1,9 @@
-import jwt from 'jsonwebtoken';
-import { ErrorHandler } from '../.error/error.handler.js';
-import { AuthEntity } from '../entities/auth.entity.js';
-import { User } from '../users/user.model.js';
+const jwt = require('jsonwebtoken');
+const { ErrorHandler } = require('../.error/error.handler');
+const { AuthEntity } = require('../entities/auth.entity');
+const { User } = require('../users/User.model');
 
-export const authMiddleware = async (req, res, next) => {
+const authMiddleware = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader)
@@ -30,7 +30,7 @@ export const authMiddleware = async (req, res, next) => {
 };
 
 //////////////////////////////////////////////////////////////////////////////////////
-export const authLoginObject = async (req, res, next) => {
+const authLoginObject = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const user = new AuthEntity({ email, password });
@@ -52,3 +52,5 @@ const findByIdAuth = async id => {
     throw { name: 'InternalServerError', message: 'Error finding user' };
   }
 };
+
+module.exports = { authMiddleware, authLoginObject };

@@ -1,4 +1,4 @@
-export class UserEntity {
+class UserEntity {
   constructor(user) {
     this.name = user.name;
     this.username = user.username;
@@ -55,3 +55,5 @@ export class UserEntity {
     };
   }
 }
+//////////////////////////////////////////////////////////////////////////////
+module.exports = { UserEntity };

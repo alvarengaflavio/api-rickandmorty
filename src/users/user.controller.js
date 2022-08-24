@@ -1,8 +1,8 @@
-import * as userService from './user.service.js';
-import { ErrorHandler } from '../.error/error.handler.js';
-import { generateToken } from '../auth/auth.service.js';
+const userService = require('./user.service');
+const { ErrorHandler } = require('../.error/error.handler');
+const { generateToken } = require('../auth/auth.service');
 
-export const findAllUsersController = async (req, res, next) => {
+const findAllUsersController = async (req, res, next) => {
   try {
     const users = await userService.findAllUsersService();
     if (!users.length)
@@ -14,7 +14,7 @@ export const findAllUsersController = async (req, res, next) => {
   }
 };
 
-export const createUserController = async (req, res, next) => {
+const createUserController = async (req, res, next) => {
   try {
     const foundUser = await userService.findByEmailService(req.body.email);
     if (foundUser)
@@ -30,4 +30,9 @@ export const createUserController = async (req, res, next) => {
   } catch (err) {
     ErrorHandler.handleError(err, req, res, next);
   }
+};
+///////////////////////////////////////////////////////////////////////////////
+module.exports = {
+  findAllUsersController,
+  createUserController,
 };

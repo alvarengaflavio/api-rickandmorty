@@ -1,7 +1,7 @@
-import { UserEntity } from '../entities/user.entity.js';
-import { ErrorHandler } from '../.error/error.handler.js';
+const { UserEntity } = require('../entities/user.entity');
+const { ErrorHandler } = require('../.error/error.handler');
 
-export class UserMiddleware {
+class UserMiddleware {
   static validateUserBody(req, res, next) {
     try {
       const user = new UserEntity(req.body);
@@ -13,3 +13,5 @@ export class UserMiddleware {
     }
   }
 }
+/////////////////////////////////////////////////////////////////////
+module.exports = { UserMiddleware };

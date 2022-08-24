@@ -1,4 +1,4 @@
-export class AuthEntity {
+class AuthEntity {
   constructor({ email, password }) {
     this.email = email;
     this.password = password;
@@ -30,3 +30,5 @@ export class AuthEntity {
     };
   }
 }
+////////////////////////////////////////////////////////////////////////////////
+module.exports = { AuthEntity };

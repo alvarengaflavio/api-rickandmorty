@@ -1,11 +1,14 @@
-import express from 'express';
-import cors from 'cors';
-import { connectToDatabase } from './database/mongo.database.js';
-import {} from 'dotenv/config';
-import { router as characterRoute } from './characters/character.route.js';
-import { router as userRoute } from './users/user.route.js';
-import { router as authRoute } from './auth/auth.route.js';
-import { router as swaggerRoute } from './swagger/swagger.route.js';
+const express = require('express');
+const cors = require('cors');
+const { connectToDatabase } = require('./database/mongo.database');
+const characterRoute = require('./characters/character.route');
+const userRoute = require('./users/user.route');
+const authRoute = require('./auth/auth.route');
+const swaggerRoute = require('./swagger/swagger.route');
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 const port = process.env.PORT_PROD ?? process.env.PORT_DEV;
 const app = express();
