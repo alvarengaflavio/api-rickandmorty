@@ -102,7 +102,7 @@
               "examples": {
                 "User": {
                   "value": {
-                    "email": "newuser@gmail.com",
+                    "email": "newuser@email.com",
                     "password": "12345"
                   }
                 }
@@ -253,6 +253,14 @@
             "name": "id",
             "type": "string",
             "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Character object",
+            "schema": {
+              "$ref": "#/components/schemas/Character"
+            }
           }
         ],
         "requestBody": {
