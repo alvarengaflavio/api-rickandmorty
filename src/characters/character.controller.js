@@ -88,9 +88,7 @@ export const searchCharacterController = async (req, res, next) => {
     const foundCharacters = await characterService.searchCharacterService(
       req.query.name,
     );
-    if (!foundCharacters.length > 0)
-      throw { name: 'NotFoundError', message: 'No characters found' };
-    res.status(200).send({ foundCharacters });
+    res.status(200).send(foundCharacters);
   } catch (err) {
     ErrorHandler.handleError(err, req, res, next);
   }

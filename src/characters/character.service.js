@@ -32,14 +32,17 @@ export const deleteCharacterService = async id => {
 };
 
 export const searchCharacterService = async searchTerm => {
-  const foundCharacters = await Character.find({
-    name: { $regex: `${searchTerm}`, $options: 'i' },
-  })
-    .sort({ name: 1 })
-    .populate('user');
-  return foundCharacters;
+  const foundCharacters = await findByNameAndPopulate(searchTerm);
+  if (!foundCharacters.length > 0)
+    throw { name: 'NotFoundError', message: 'No characters found' };
+  const characterList = {
+    characters: await getCharacterObject(foundCharacters),
+  };
+  return characterList;
 };
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////  INTERN FUNCTIONS  //////////////////////////////////////////////////////////////////
 export const previousUrl = async (limit, offset, total) => {
   const previousUrl = `/characters?limit=${limit}&offset=${offset - limit}`;
   if (offset - limit < 0) return null;
@@ -50,7 +53,7 @@ export const nextUrl = async (limit, offset, total) => {
   const nextUrl = `/characters?limit=${limit}&offset=${offset + limit}`;
   if (offset + limit > total) return null;
   return nextUrl;
-}
+};
 
 export const getPaginatedObject = async (characters, limit, offset, total) => {
   const paginatedCharacters = {
@@ -59,19 +62,33 @@ export const getPaginatedObject = async (characters, limit, offset, total) => {
     limit: limit,
     offset: offset,
     total: total,
-    results: characters.map(character => ({
-      id: character._id,
-      user: {
-        _id: character.user._id,
-        name: character.user.name,
-        username: character.user.username,
-        email: character.user.email,
-        photo: character.user.photo,
-        __v: character.user.__v,
-      },
-      name: character.name,
-      imageUrl: character.imageUrl,
-    })),
-  }
+    results: await getCharacterObject(characters),
+  };
   return paginatedCharacters;
-}
+};
+
+export const getCharacterObject = async characters => {
+  const characterObject = characters.map(character => ({
+    id: character._id,
+    user: {
+      _id: character.user._id,
+      name: character.user.name,
+      username: character.user.username,
+      email: character.user.email,
+      photo: character.user.photo,
+      __v: character.user.__v,
+    },
+    name: character.name,
+    imageUrl: character.imageUrl,
+  }));
+  return characterObject;
+};
+
+const findByNameAndPopulate = async searchTerm => {
+  const chracterList = Character.find({
+    name: { $regex: `${searchTerm}`, $options: 'i' },
+  })
+    .sort({ name: 1 })
+    .populate('user');
+  return chracterList;
+};
