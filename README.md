@@ -201,8 +201,8 @@ User    {
 
 ---
 
-Language: JavaScript
-Tecnology: NodeJs, Express, MongoDB
+Language: JavaScript  
+Tecnology: NodeJs, Express, MongoDB  
 Workload: 20 + 20 hours
 
 ---
