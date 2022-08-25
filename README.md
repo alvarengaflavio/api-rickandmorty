@@ -3,15 +3,41 @@
 This is a CRUD for Rick and Morty characters, with a login system and cryptographic password.
 Online Swagger Documentation: [https://alva-rickandmorty.herokuapp.com/api-docs/](https://alva-rickandmorty.herokuapp.com/api-docs/)
 
+## Setting up
+
+Download the Front-end [here.](https://drive.google.com/file/d/1FAutpdj3nYIuwzfeoLwUOhWmybOvecSi/view?usp=sharing)
+After the download, unzip and open its folder in Visual Studio Code. Run the following command on terminal:
+
+```git
+npm install
+```
+
+After the npm installation, open and modify the file in the path: `/api/api.js`.
+Edit only the line containing the `baseURL` key, set the following string as value: `"https://alva-rickandmorty.herokuapp.com"`
+
+```javaScript
+export const Api = {
+  baseUrl: "https://alva-rickandmorty.herokuapp.com",
+  keyJwt: localStorage.getItem("keyLogin"),
+  // rest of the code...
+}
+```
+
+Run the Front-end with the following command:
+
+```git
+npm start
+```
+
+---
+
 ## Routes
 
 ### Users
 
-#### POST
-
-PATH: `/users/create`
+#### [POST] - PATH: `/users/create`
 Route responsible for creating a new user.
-Example Json:
+Json example:
 
 ```json
 {
@@ -221,6 +247,6 @@ User    {
 
 Language: JavaScript  
 Tecnology: NodeJs, Express, MongoDB  
-Workload: 20 + 20 hours
+Workload: 40 hours
 
 ---
