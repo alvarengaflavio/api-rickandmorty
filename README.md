@@ -8,7 +8,7 @@ Online Swagger Documentation: [https://alva-rickandmorty.herokuapp.com/api-docs/
 Download the Front-end [here.](https://drive.google.com/file/d/1FAutpdj3nYIuwzfeoLwUOhWmybOvecSi/view?usp=sharing)
 After the download, unzip and open its folder in Visual Studio Code. Run the following command on terminal:
 
-```git
+```cmd
 npm install
 ```
 
@@ -33,9 +33,12 @@ npm start
 
 ## Routes
 
-### Users
+---
+
+## Users
 
 #### [POST] - PATH: `/users/create`
+
 Route responsible for creating a new user.
 Json example:
 
@@ -51,9 +54,8 @@ Json example:
 
 ---
 
-#### GET
+#### [GET] - PATH: `/users`
 
-PATH: `/users`
 Route responsible for getting all users.
 Response body
 
@@ -74,11 +76,10 @@ Response body
 
 ---
 
-### Auth
+## Auth
 
-#### POST
+#### [POST] - PATH: `/auth/login`
 
-PATH: `/auth/login`
 Route responsible for login users.
 Request body:
 
@@ -91,11 +92,10 @@ Request body:
 
 ---
 
-### Character
+## Characters
 
-#### POST
+#### [POST] - PATH: `/character/create`
 
-PATH: `/character/create`
 Route responsible for creating a new character.
 
 Request body:
@@ -110,9 +110,8 @@ Request body:
 
 ---
 
-#### GET
+#### [GET] - PATH: `/character`
 
-PATH: `/character`
 Route responsible for creating new characters
 Parameters:
 
@@ -162,9 +161,8 @@ Response body:
 
 ---
 
-#### GET
+#### [GET] - PATH: `/character/find/{id}`
 
-PATH: `/character/find/{id}`
 Route responsible for getting a character by ID.
 Parameters:
 
@@ -173,9 +171,8 @@ Parameters:
 
 ---
 
-#### PUT
+#### [PUT] - PATH: `/character/update/{id}`
 
-PATH: `/character/update/{id}`
 Route responsible for updating a character by ID.
 
 Parameters:
@@ -196,9 +193,8 @@ Parameters:
 
 ---
 
-#### DELETE
+#### [DELETE] - PATH: `/character/delete/{id}`
 
-PATH: `/character/delete/{id}`
 Route responsible for deleting a character by ID.
 
 Parameters:
@@ -209,9 +205,8 @@ Parameters:
 
 ---
 
-#### GET
+#### [GET] - PATH: `/character/search`
 
-PATH: `/character/search`
 Route responsible for getting characters containing the search term sent via query params.
 Parameters:
 
@@ -223,7 +218,7 @@ Parameters:
 
 ## Schemas
 
-### User
+### USER
 
 ```
 User    {
@@ -235,7 +230,7 @@ User    {
 }
 ```
 
-### Character
+### CHARACTER
 
 ```
     user        string
