@@ -8,7 +8,7 @@ Online Swagger Documentation: [https://alva-rickandmorty.herokuapp.com/api-docs/
 Download the Front-end [here.](https://drive.google.com/file/d/1FAutpdj3nYIuwzfeoLwUOhWmybOvecSi/view?usp=sharing)
 After the download, unzip and open its folder in Visual Studio Code. Run the following command on terminal:
 
-```cmd
+```powershell
 npm install
 ```
 
