@@ -1,7 +1,6 @@
 # API Rick and Morty
 
-This is a CRUD for Rick and Morty characters, with a login system and cryptographic password.
-
+This is a CRUD for Rick and Morty characters, with a login system and cryptographic password.  
 Online Swagger Documentation: [https://alva-rickandmorty.herokuapp.com/api-docs/](https://alva-rickandmorty.herokuapp.com/api-docs/)
 
 ## Setting up
