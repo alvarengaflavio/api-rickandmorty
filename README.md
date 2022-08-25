@@ -12,7 +12,7 @@ After the download, unzip and open its folder in Visual Studio Code. Run the fol
 npm install
 ```
 
-After the npm installation, open and modify the file in the path: `/api/api.js`.
+After the npm installation, open and modify the file in the path: `/api/api.js`.  
 Edit only the line containing the `baseURL` key, set the following string as value: `"https://alva-rickandmorty.herokuapp.com"`
 
 ```javaScript
