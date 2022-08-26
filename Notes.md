@@ -88,6 +88,6 @@ Elas também podem ser encontras neste [endereço](https://rick-and-morty-server
 
 ---
 
-Linguagem: JavaScript
-Tecnologias: NodeJs, Express e MongoDB
-Carga horária: 40 horas
+Linguagem: JavaScript  
+Tecnologias: NodeJs, Express e MongoDB  
+Carga horária: 40 horas  
